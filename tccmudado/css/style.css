@@ -20,7 +20,7 @@
     text-align: center;
 }
 .fundo{
-    background: #2F3238 url("../img/sujeirinhas.png") repeat-x center 0;
+    background: #2F3238  url("../img/sujeirinhas.png") repeat-x center 0;
 
 }
 .rodape{
@@ -29,16 +29,19 @@
 *{
     font-family: breamcatcher ;
     font-size: 30px;
+
 }
 
 body h2{
     font-family: breamcatcher ;
     font-size: 30px;
+    color: white;
 
 }
 
 body ul li a{
     font-family: breamcatcher ;
+    color: white;
 
 }
 .imgLivro{
