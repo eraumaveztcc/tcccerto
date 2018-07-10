@@ -29,60 +29,12 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <script src="https://use.fontawesome.com/203fc140a4.js"></script>
-</head>
+        <script src="https://use.fontawesome.com/203fc140a4.js"></script>-->
+
+    </head>
 <body>
 <!-- Navigation -->
-<div class="menu" id="menu">
-    <div>
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a id="texto-ini" class="inicial-li" href="ControlerUsuario.php">Página Inicial</a>
-                </li>
-                <li>
-                    <a id="texto-ini" href="#">Biblioteca</a>
-                </li>
-                <li>
-                    <a id="texto-ini" href="#">Criar sinopse</a>
-                </li>
 
-                <li>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php
-                            if (!isset($_SESSION['us_id'])){
-                                echo "Visitante";
-                            }else{
-                                $nome = $_SESSION['us_nome'];
-                                echo "parabens, você esta logado $nome";
-                            } ?>
-                            <span class="glyphicon glyphicon-user" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
-                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Formulário</a></li>
-                            <li><a href="?acao=login">Entrar</a></li>
-                            <li><a href="?acao=cadastrar">Cadastrar</a></li>
-                            <li><a href="?acao=logout">Sair</a></li>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</div>
 <div class = "fundo">
     <br>
     <br>
@@ -98,6 +50,8 @@
 
         <p>Recomendações</p>
         <hr>
+    </div>
+</div>
 
 
 <div class="container">
@@ -442,24 +396,7 @@
         </div>
         <br><br>
 
-        <div class="container">
 
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12" style="margin-left: 25%">
-                        <p><?php
-                            if (!isset($_SESSION['us_id'])){
-                            echo "Você não esta logado";
-                            }else{
-                                $nome = $_SESSION['us_nome'];
-                                echo "parabens, você esta logado $nome";
-                            } ?>
-                        </p>
-                    </div>
-
-                </div>
-            </footer>
-        </div>
 
 
     <!-- jQuery -->

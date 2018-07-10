@@ -24,15 +24,21 @@
                 <span><i class="fa fa-lock"  aria-hidden="true" ></i></span>
             </div>
             <?php
-            if (@$_GET['erro'] == 1){?>
+            if (@$_GET['erro'] == 'naologado'){?>
+                <?php echo "<script>alert('É preciso estar logado para acessar esta página')</script>"?>
+            <?php } ?>
+            <?php
+            if (@$_GET['erro'] == 'loginerrado'){?>
                 <div class="error-text" style="color: red">Login incorreto. Por favor tente novamente</div>
             <?php } ?>
             <input type="submit" name="gravar" value="Login">
         </form>
 
-<a href="cadastrar.php">Deseja criar uma conta?</a>
+<a href="?acao=cadastrar">Deseja criar uma conta?</a>
         <br>
 <a href="cadastrar.php">Esqueceu a senha</a>
+        <br>
+<a href="ControlerUsuario.php">Entrar como visitante</a>
 </div>
 </body>
 </html>

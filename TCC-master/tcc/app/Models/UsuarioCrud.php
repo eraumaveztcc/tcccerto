@@ -13,7 +13,7 @@ class UsuarioCrud
     //RETORNA VERDADEIRO OU FALSA
 
     public function LoginUsuario(Usuario $user){
-        $sql = $this->conexao->prepare("SELECT * FROM Usuario WHERE us_email = '{$user->getEmail()}' AND us_senha = '{$user->getSenha()}'");
+        $sql = $this->conexao->prepare("SELECT * FROM Usuario WHERE us_email = '{$user->getUsEmail()}' AND us_senha = '{$user->getUsSenha()}'");
         $sql->execute();
         $resultado = $sql->rowCount();
         return $resultado;
@@ -45,7 +45,8 @@ class UsuarioCrud
             $usuario['us_senha'],
             $usuario['us_datanascimento'],
             $usuario['us_sexo'],
-            $usuario['us_id']
+            $usuario['us_id'],
+            $usuario['tip_usuario']
         );
         //RETORNAR UM OBJETO CATEGORIA COM OS VALORES
         return $objetoUsuario;
@@ -66,7 +67,8 @@ class UsuarioCrud
             $usuario['us_senha'],
             $usuario['us_datanascimento'],
             $usuario['us_sexo'],
-            $usuario['us_id']
+            $usuario['us_id'],
+            $usuario['tip_usuario']
         );
         //RETORNAR UM OBJETO CATEGORIA COM OS VALORES
         return $objetoUsuario;
@@ -88,8 +90,9 @@ class UsuarioCrud
             $telefone = $usuario['telefone'];
             $cpf = $usuario['cpf'];
             $endereco = $usuario['endereco'];
+            $tipuser = $usuario['tip_usuario'];
 
-            $obj = new Usuario($nome, $senha, $email, $telefone, $cpf, $endereco);
+            $obj = new Usuario($nome, $senha, $email, $telefone, $cpf, $endereco,$tipuser);
             $listaUsuario[] = $obj;
         }
         return $listaUsuario;
@@ -116,8 +119,8 @@ class UsuarioCrud
         //EFETUA A CONEXAO
         $this->conexao = DBConnection::getConexao();
         //MONTA O TEXTO DA INSTRUÇÂO SQL
-        $sql = "insert into Usuario (us_nome, us_email,us_senha,us_datanascimento, us_sexo) 
-        values ('{$user->getNome()}','{$user->getEmail()}','{$user->getSenha()}','{$user->getDatanascimento()}','{$user->getSexo()}')";
+        $sql = "insert into Usuario (us_nome, us_email,us_senha,us_datanascimento, us_sexo, tip_usuario) 
+        values ('{$user->getUsNome()}','{$user->getUsEmail()}','{$user->getUsSenha()}','{$user->getUsDatanascimento()}','{$user->getUsSexo()}',1)";
 
         try {//TENTA EXECUTAR A INSTRUCAO
 

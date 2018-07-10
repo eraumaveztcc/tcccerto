@@ -24,64 +24,119 @@ class Usuario
 
     }
 
-    public function getId()
+    /**
+     * @return null
+     */
+    public function getUsId()
     {
         return $this->us_id;
     }
 
-    public function setId($id)
+    /**
+     * @param null $us_id
+     */
+    public function setUsId($us_id)
     {
-        $this->us_id = $id;
+        $this->us_id = $us_id;
     }
 
-    public function getNome()
+    /**
+     * @return null
+     */
+    public function getUsNome()
     {
         return $this->us_nome;
     }
 
-    public function setNome($nome)
+    /**
+     * @param null $us_nome
+     */
+    public function setUsNome($us_nome)
     {
-        $this->us_nome = $nome;
+        $this->us_nome = $us_nome;
     }
 
-    public function getSenha()
-    {
-        return $this->us_senha;
-    }
-
-    public function setSenha($senha)
-    {
-        $this->us_senha = $senha;
-    }
-
-    public function getEmail()
+    /**
+     * @return null
+     */
+    public function getUsEmail()
     {
         return $this->us_email;
     }
 
-    public function setEmail($email)
+    /**
+     * @param null $us_email
+     */
+    public function setUsEmail($us_email)
     {
-        $this->us_email = $email;
+        $this->us_email = $us_email;
     }
 
-    public function getDatanascimento()
+    /**
+     * @return null
+     */
+    public function getUsSenha()
+    {
+        return $this->us_senha;
+    }
+
+    /**
+     * @param null $us_senha
+     */
+    public function setUsSenha($us_senha)
+    {
+        $this->us_senha = $us_senha;
+    }
+
+    /**
+     * @return null
+     */
+    public function getUsDatanascimento()
     {
         return $this->us_datanascimento;
     }
-    public function setDatanascimento($datanascimento)
+
+    /**
+     * @param null $us_datanascimento
+     */
+    public function setUsDatanascimento($us_datanascimento)
     {
-        $this->telefone = $datanascimento;
+        $this->us_datanascimento = $us_datanascimento;
     }
 
-    public function getSexo()
+    /**
+     * @return null
+     */
+    public function getUsSexo()
     {
         return $this->us_sexo;
     }
 
-    public function setSexo($sexo)
+    /**
+     * @param null $us_sexo
+     */
+    public function setUsSexo($us_sexo)
     {
-        $this->cpf = $sexo;
+        $this->us_sexo = $us_sexo;
     }
+
+    /**
+     * @return null
+     */
+    public function getTipUsuario()
+    {
+        return $this->tip_usuario;
+    }
+
+    /**
+     * @param null $tip_usuario
+     */
+    public function setTipUsuario($tip_usuario)
+    {
+        $this->tip_usuario = $tip_usuario;
+    }
+
+
 
 
 }
