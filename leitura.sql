@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 22-Out-2018 às 02:38
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: localhost
+-- Tempo de geração: 27/11/2018 às 12:25
+-- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
+-- Versão do PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `leitura`
+-- Banco de dados: `leitura`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `avaliacaolivro`
+-- Estrutura para tabela `avaliacaolivro`
 --
 
 CREATE TABLE `avaliacaolivro` (
@@ -36,10 +34,18 @@ CREATE TABLE `avaliacaolivro` (
   `al_nota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `avaliacaolivro`
+--
+
+INSERT INTO `avaliacaolivro` (`al_idavaliacaolivro`, `al_idlivro`, `al_idusuario`, `al_datahora`, `al_nota`) VALUES
+(1, 59, 1, '2018-11-27 11:42:31', 3),
+(2, 59, 1, '2018-11-27 11:51:09', 5);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `biblioteca`
+-- Estrutura para tabela `biblioteca`
 --
 
 CREATE TABLE `biblioteca` (
@@ -50,18 +56,10 @@ CREATE TABLE `biblioteca` (
   `bi_observacao` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `biblioteca`
---
-
-INSERT INTO `biblioteca` (`bi_id`, `bi_idlivro`, `bi_idprateleira`, `bi_datainclusao`, `bi_observacao`) VALUES
-(1, 54, 6, '2018-10-15 04:27:09', NULL),
-(2, 55, 6, '2018-10-18 01:03:53', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `comentario`
+-- Estrutura para tabela `comentario`
 --
 
 CREATE TABLE `comentario` (
@@ -74,7 +72,7 @@ CREATE TABLE `comentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `comentario`
+-- Fazendo dump de dados para tabela `comentario`
 --
 
 INSERT INTO `comentario` (`cm_id`, `cm_texto`, `cm_data`, `cm_curtidas`, `cm_idusuario`, `cm_idlivro`) VALUES
@@ -92,7 +90,7 @@ INSERT INTO `comentario` (`cm_id`, `cm_texto`, `cm_data`, `cm_curtidas`, `cm_idu
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fatores`
+-- Estrutura para tabela `fatores`
 --
 
 CREATE TABLE `fatores` (
@@ -101,7 +99,7 @@ CREATE TABLE `fatores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='	';
 
 --
--- Extraindo dados da tabela `fatores`
+-- Fazendo dump de dados para tabela `fatores`
 --
 
 INSERT INTO `fatores` (`fa_id`, `fa_descricao`) VALUES
@@ -115,7 +113,7 @@ INSERT INTO `fatores` (`fa_id`, `fa_descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fatorlivro`
+-- Estrutura para tabela `fatorlivro`
 --
 
 CREATE TABLE `fatorlivro` (
@@ -127,22 +125,32 @@ CREATE TABLE `fatorlivro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `fatorlivro`
+-- Fazendo dump de dados para tabela `fatorlivro`
 --
 
 INSERT INTO `fatorlivro` (`fl_id`, `fl_idfator`, `fl_idlivro`, `fl_idusuario`, `fl_valor`) VALUES
-(16, 1, 55, 1, 199),
-(17, 1, 53, 1, 200),
-(19, 1, 54, 1, 500),
-(25, 1, 59, 1, 90),
-(26, 2, 59, 1, 7),
-(27, 4, 59, 1, 2010),
-(28, 5, 59, 1, 10);
+(29, 1, 61, 1, 156),
+(30, 1, 62, 1, 256),
+(31, 1, 63, 1, 240),
+(32, 1, 64, 1, 192),
+(33, 1, 65, 1, 480),
+(34, 1, 66, 1, 1104),
+(35, 1, 67, 1, 288),
+(36, 1, 68, 1, 224),
+(37, 1, 69, 1, 226),
+(38, 1, 70, 1, 400),
+(39, 1, 71, 1, 320),
+(40, 1, 72, 1, 210),
+(41, 1, 73, 1, 398),
+(42, 1, 74, 1, 464),
+(43, 1, 75, 1, 328),
+(44, 1, 76, 1, 272),
+(45, 1, 77, 1, 304);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fatorusuario`
+-- Estrutura para tabela `fatorusuario`
 --
 
 CREATE TABLE `fatorusuario` (
@@ -153,7 +161,7 @@ CREATE TABLE `fatorusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `fatorusuario`
+-- Fazendo dump de dados para tabela `fatorusuario`
 --
 
 INSERT INTO `fatorusuario` (`fu_id`, `fu_idfator`, `fu_idusuario`, `fu_nota`) VALUES
@@ -167,7 +175,7 @@ INSERT INTO `fatorusuario` (`fu_id`, `fu_idfator`, `fu_idusuario`, `fu_nota`) VA
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `genero`
+-- Estrutura para tabela `genero`
 --
 
 CREATE TABLE `genero` (
@@ -176,7 +184,7 @@ CREATE TABLE `genero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `genero`
+-- Fazendo dump de dados para tabela `genero`
 --
 
 INSERT INTO `genero` (`ge_id`, `ge_descricao`) VALUES
@@ -209,7 +217,7 @@ INSERT INTO `genero` (`ge_id`, `ge_descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `generolivro`
+-- Estrutura para tabela `generolivro`
 --
 
 CREATE TABLE `generolivro` (
@@ -219,16 +227,42 @@ CREATE TABLE `generolivro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `generolivro`
+-- Fazendo dump de dados para tabela `generolivro`
 --
 
 INSERT INTO `generolivro` (`gl_id`, `gl_idlivro`, `gl_idgenero`) VALUES
-(47, 59, 7);
+(48, 60, 3),
+(49, 61, 12),
+(50, 62, 20),
+(51, 63, 20),
+(52, 64, 7),
+(53, 64, 8),
+(54, 65, 20),
+(55, 66, 14),
+(56, 66, 23),
+(57, 66, 24),
+(58, 67, 1),
+(59, 68, 12),
+(60, 68, 14),
+(61, 69, 23),
+(62, 70, 14),
+(63, 71, 20),
+(64, 72, 14),
+(65, 73, 14),
+(66, 74, 9),
+(67, 74, 14),
+(68, 74, 20),
+(69, 75, 14),
+(70, 75, 20),
+(71, 76, 10),
+(72, 76, 14),
+(73, 76, 20),
+(74, 77, 9);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `imagem`
+-- Estrutura para tabela `imagem`
 --
 
 CREATE TABLE `imagem` (
@@ -240,7 +274,7 @@ CREATE TABLE `imagem` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `livro`
+-- Estrutura para tabela `livro`
 --
 
 CREATE TABLE `livro` (
@@ -255,20 +289,34 @@ CREATE TABLE `livro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `livro`
+-- Fazendo dump de dados para tabela `livro`
 --
 
 INSERT INTO `livro` (`li_idlivro`, `li_titulo`, `li_ano`, `li_autor`, `li_paginas`, `li_editora`, `li_censura`, `li_idusuario`) VALUES
-(53, 'NOVO EXEMPLO PAW22222', 2010, 'aaa', 200, '2000', 0, 1),
-(54, 'UM livro ai novo pa', 2010, 'Ela encaixa', 500, 'UYma nova editora que surgiu recentemente porÃ©m famosa', 16, 1),
-(55, 'livro com 199 pags', 2010, 'aaa', 199, 'UYma nova editora que surgiu recentemente porÃ©m famosa', 12, 1),
-(57, '99 pags', 2015, 'aaa', 99, 'fds', 12, 1),
-(59, 'outro livro com 90 pags', 2010, 'novo autor feito agora', 90, 'aaaa', 10, 1);
+(59, 'outro livro com 90 pags', 2010, 'novo autor feito agora', 90, 'aaaa', 10, 1),
+(60, 'novo livo', 2010, 'autor', 100, 'editora', 0, 1),
+(61, 'As reinaÃ§Ãµes de Narizinho', 2008, 'Monteiro Lobato', 156, 'Globo', 0, 1),
+(62, 'MemÃ³rias PÃ³stumas de BrÃ¡s Cubas', 1881, 'Machado de Assis', 256, 'L&M Editores', 14, 1),
+(63, 'O PrÃ­ncipe e o Mendigo', 2007, ' Mark Twain', 240, 'L&M Editores', 10, 1),
+(64, 'Auto da Compadecida', 2014, 'Ariano Suassuna', 192, 'Nova Fronteira', 14, 1),
+(65, 'A Menina que roubava livros', 2007, ' Markus Zusak', 480, 'IntrÃ­nseca', 14, 1),
+(66, 'IT: A coisa', 2014, 'Stephen King', 1104, 'Suma de Letras', 16, 1),
+(67, 'Cristianismo Puro e Simples', 2005, 'C.S. Lewis', 288, 'Thomas Nelson', 0, 1),
+(68, 'Harry Potter e a Pedra Filosofal', 2000, 'J.K. Rowling', 224, 'Rocco ', 10, 1),
+(69, 'Assassinato no expresso do Oriente', 1934, 'Agatha Christie', 226, 'Harpercollins ', 12, 1),
+(70, 'Percy Jackson e o LadrÃ£o de Raios', 2008, 'Rick Riordan', 400, 'InstrÃ­nseca', 0, 1),
+(71, 'Para todos os garotos que jÃ¡ amei', 2015, 'Janny Han', 320, 'IntrÃ­nseca', 14, 1),
+(72, 'Viagem ao centro da Terra', 1886, ' JÃºlio Verne', 210, 'Zahar', 10, 1),
+(73, 'Guerra Civil - Uma HistÃ³ria do Universo Marvel', 2014, 'Stuart Moore', 398, ' Novo SÃ©culo Marvel', 0, 1),
+(74, 'Lost Boys: O verdadeiro amor nunca morre', 2013, 'Lilian Carmine', 464, 'Casa da Palavra', 14, 1),
+(75, 'A Sereia', 2016, 'Kiera Cass', 328, ' Seguinte', 12, 1),
+(76, 'Os MiserÃ¡veis', 1862, 'Vitor Hugo', 272, 'Seguinte', 16, 1),
+(77, 'Jogo de espelhos', 2017, 'Cara Delevigne ', 304, 'IntrÃ­nseca', 16, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `prateleira`
+-- Estrutura para tabela `prateleira`
 --
 
 CREATE TABLE `prateleira` (
@@ -280,7 +328,7 @@ CREATE TABLE `prateleira` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `prateleira`
+-- Fazendo dump de dados para tabela `prateleira`
 --
 
 INSERT INTO `prateleira` (`pr_id`, `pr_descricao`, `pr_idusuario`, `pr_datacriacao`, `pr_status`) VALUES
@@ -293,7 +341,7 @@ INSERT INTO `prateleira` (`pr_id`, `pr_descricao`, `pr_idusuario`, `pr_datacriac
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `resenha`
+-- Estrutura para tabela `resenha`
 --
 
 CREATE TABLE `resenha` (
@@ -305,20 +353,13 @@ CREATE TABLE `resenha` (
   `re_status` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `resenha`
---
-
-INSERT INTO `resenha` (`re_id`, `re_idlivro`, `re_idusuario`, `re_data`, `re_textoresenha`, `re_status`) VALUES
-(1, 53, 1, '2018-10-13 01:43:41', 'aaaaaa', '1');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `Usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `Usuario` (
   `us_id` int(11) NOT NULL,
   `us_nome` varchar(100) DEFAULT NULL,
   `us_email` varchar(200) DEFAULT NULL,
@@ -329,10 +370,10 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Fazendo dump de dados para tabela `Usuario`
 --
 
-INSERT INTO `usuario` (`us_id`, `us_nome`, `us_email`, `us_senha`, `us_datanascimento`, `us_sexo`, `tip_usuario`) VALUES
+INSERT INTO `Usuario` (`us_id`, `us_nome`, `us_email`, `us_senha`, `us_datanascimento`, `us_sexo`, `tip_usuario`) VALUES
 (1, 'hugo', 'hugo@hugo.com', '123', '2018-07-04', 'm', 2),
 (17, 'taina2', 'taina@taina.com', '123', '2000-11-04', 'F', 1),
 (18, 'Novo Usuario', 'novo@novo.com', '123', '2000-01-01', 'M', 1);
@@ -340,7 +381,7 @@ INSERT INTO `usuario` (`us_id`, `us_nome`, `us_email`, `us_senha`, `us_datanasci
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuariogenero`
+-- Estrutura para tabela `usuariogenero`
 --
 
 CREATE TABLE `usuariogenero` (
@@ -351,11 +392,11 @@ CREATE TABLE `usuariogenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `avaliacaolivro`
+-- Índices de tabela `avaliacaolivro`
 --
 ALTER TABLE `avaliacaolivro`
   ADD PRIMARY KEY (`al_idavaliacaolivro`),
@@ -363,7 +404,7 @@ ALTER TABLE `avaliacaolivro`
   ADD KEY `al_usuario_idx` (`al_idusuario`);
 
 --
--- Indexes for table `biblioteca`
+-- Índices de tabela `biblioteca`
 --
 ALTER TABLE `biblioteca`
   ADD PRIMARY KEY (`bi_id`),
@@ -371,19 +412,19 @@ ALTER TABLE `biblioteca`
   ADD KEY `bi_prateleira_idx` (`bi_idprateleira`);
 
 --
--- Indexes for table `comentario`
+-- Índices de tabela `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`cm_id`);
 
 --
--- Indexes for table `fatores`
+-- Índices de tabela `fatores`
 --
 ALTER TABLE `fatores`
   ADD PRIMARY KEY (`fa_id`);
 
 --
--- Indexes for table `fatorlivro`
+-- Índices de tabela `fatorlivro`
 --
 ALTER TABLE `fatorlivro`
   ADD PRIMARY KEY (`fl_id`),
@@ -392,7 +433,7 @@ ALTER TABLE `fatorlivro`
   ADD KEY `fl_usuario_idx` (`fl_idusuario`);
 
 --
--- Indexes for table `fatorusuario`
+-- Índices de tabela `fatorusuario`
 --
 ALTER TABLE `fatorusuario`
   ADD PRIMARY KEY (`fu_id`),
@@ -400,13 +441,13 @@ ALTER TABLE `fatorusuario`
   ADD KEY `fu_usuario_idx` (`fu_idusuario`);
 
 --
--- Indexes for table `genero`
+-- Índices de tabela `genero`
 --
 ALTER TABLE `genero`
   ADD PRIMARY KEY (`ge_id`);
 
 --
--- Indexes for table `generolivro`
+-- Índices de tabela `generolivro`
 --
 ALTER TABLE `generolivro`
   ADD PRIMARY KEY (`gl_id`),
@@ -414,26 +455,26 @@ ALTER TABLE `generolivro`
   ADD KEY `gl_genero_idx` (`gl_idgenero`);
 
 --
--- Indexes for table `imagem`
+-- Índices de tabela `imagem`
 --
 ALTER TABLE `imagem`
   ADD PRIMARY KEY (`img_id`);
 
 --
--- Indexes for table `livro`
+-- Índices de tabela `livro`
 --
 ALTER TABLE `livro`
   ADD PRIMARY KEY (`li_idlivro`);
 
 --
--- Indexes for table `prateleira`
+-- Índices de tabela `prateleira`
 --
 ALTER TABLE `prateleira`
   ADD PRIMARY KEY (`pr_id`),
   ADD KEY `pr_usuario_idx` (`pr_idusuario`);
 
 --
--- Indexes for table `resenha`
+-- Índices de tabela `resenha`
 --
 ALTER TABLE `resenha`
   ADD PRIMARY KEY (`re_id`),
@@ -441,13 +482,13 @@ ALTER TABLE `resenha`
   ADD KEY `re_usuario_idx` (`re_idusuario`);
 
 --
--- Indexes for table `usuario`
+-- Índices de tabela `Usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `Usuario`
   ADD PRIMARY KEY (`us_id`);
 
 --
--- Indexes for table `usuariogenero`
+-- Índices de tabela `usuariogenero`
 --
 ALTER TABLE `usuariogenero`
   ADD PRIMARY KEY (`ug_id`),
@@ -455,153 +496,138 @@ ALTER TABLE `usuariogenero`
   ADD KEY `ug_usuario_idx` (`ug_idusuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `avaliacaolivro`
+-- AUTO_INCREMENT de tabela `avaliacaolivro`
 --
 ALTER TABLE `avaliacaolivro`
-  MODIFY `al_idavaliacaolivro` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `al_idavaliacaolivro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `biblioteca`
+-- AUTO_INCREMENT de tabela `biblioteca`
 --
 ALTER TABLE `biblioteca`
   MODIFY `bi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT for table `comentario`
+-- AUTO_INCREMENT de tabela `comentario`
 --
 ALTER TABLE `comentario`
   MODIFY `cm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
--- AUTO_INCREMENT for table `fatores`
+-- AUTO_INCREMENT de tabela `fatores`
 --
 ALTER TABLE `fatores`
   MODIFY `fa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT for table `fatorlivro`
+-- AUTO_INCREMENT de tabela `fatorlivro`
 --
 ALTER TABLE `fatorlivro`
-  MODIFY `fl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
+  MODIFY `fl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
--- AUTO_INCREMENT for table `fatorusuario`
+-- AUTO_INCREMENT de tabela `fatorusuario`
 --
 ALTER TABLE `fatorusuario`
   MODIFY `fu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
--- AUTO_INCREMENT for table `genero`
+-- AUTO_INCREMENT de tabela `genero`
 --
 ALTER TABLE `genero`
   MODIFY `ge_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
 --
--- AUTO_INCREMENT for table `generolivro`
+-- AUTO_INCREMENT de tabela `generolivro`
 --
 ALTER TABLE `generolivro`
-  MODIFY `gl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
-
+  MODIFY `gl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 --
--- AUTO_INCREMENT for table `imagem`
+-- AUTO_INCREMENT de tabela `imagem`
 --
 ALTER TABLE `imagem`
   MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT for table `livro`
+-- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `li_idlivro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
+  MODIFY `li_idlivro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
--- AUTO_INCREMENT for table `prateleira`
+-- AUTO_INCREMENT de tabela `prateleira`
 --
 ALTER TABLE `prateleira`
   MODIFY `pr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
--- AUTO_INCREMENT for table `resenha`
+-- AUTO_INCREMENT de tabela `resenha`
 --
 ALTER TABLE `resenha`
   MODIFY `re_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `Usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `Usuario`
   MODIFY `us_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
--- AUTO_INCREMENT for table `usuariogenero`
+-- AUTO_INCREMENT de tabela `usuariogenero`
 --
 ALTER TABLE `usuariogenero`
   MODIFY `ug_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Restrições para dumps de tabelas
+--
 
 --
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `avaliacaolivro`
+-- Restrições para tabelas `avaliacaolivro`
 --
 ALTER TABLE `avaliacaolivro`
   ADD CONSTRAINT `al_livro` FOREIGN KEY (`al_idlivro`) REFERENCES `livro` (`li_idlivro`),
-  ADD CONSTRAINT `al_usuario` FOREIGN KEY (`al_idusuario`) REFERENCES `usuario` (`us_id`);
+  ADD CONSTRAINT `al_usuario` FOREIGN KEY (`al_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 --
--- Limitadores para a tabela `biblioteca`
+-- Restrições para tabelas `biblioteca`
 --
 ALTER TABLE `biblioteca`
   ADD CONSTRAINT `bi_livro` FOREIGN KEY (`bi_idlivro`) REFERENCES `livro` (`li_idlivro`),
   ADD CONSTRAINT `bi_prateleira` FOREIGN KEY (`bi_idprateleira`) REFERENCES `prateleira` (`pr_id`);
 
 --
--- Limitadores para a tabela `fatorlivro`
+-- Restrições para tabelas `fatorlivro`
 --
 ALTER TABLE `fatorlivro`
   ADD CONSTRAINT `fl_fator` FOREIGN KEY (`fl_idfator`) REFERENCES `fatores` (`fa_id`),
   ADD CONSTRAINT `fl_livro` FOREIGN KEY (`fl_idlivro`) REFERENCES `livro` (`li_idlivro`),
-  ADD CONSTRAINT `fl_usuario` FOREIGN KEY (`fl_idusuario`) REFERENCES `usuario` (`us_id`);
+  ADD CONSTRAINT `fl_usuario` FOREIGN KEY (`fl_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 --
--- Limitadores para a tabela `fatorusuario`
+-- Restrições para tabelas `fatorusuario`
 --
 ALTER TABLE `fatorusuario`
   ADD CONSTRAINT `fu_fator` FOREIGN KEY (`fu_idfator`) REFERENCES `fatores` (`fa_id`),
-  ADD CONSTRAINT `fu_usuario` FOREIGN KEY (`fu_idusuario`) REFERENCES `usuario` (`us_id`);
+  ADD CONSTRAINT `fu_usuario` FOREIGN KEY (`fu_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 --
--- Limitadores para a tabela `generolivro`
+-- Restrições para tabelas `generolivro`
 --
 ALTER TABLE `generolivro`
   ADD CONSTRAINT `gl_genero` FOREIGN KEY (`gl_idgenero`) REFERENCES `genero` (`ge_id`),
   ADD CONSTRAINT `gl_livro` FOREIGN KEY (`gl_idlivro`) REFERENCES `livro` (`li_idlivro`);
 
 --
--- Limitadores para a tabela `prateleira`
+-- Restrições para tabelas `prateleira`
 --
 ALTER TABLE `prateleira`
-  ADD CONSTRAINT `pr_usuario` FOREIGN KEY (`pr_idusuario`) REFERENCES `usuario` (`us_id`);
+  ADD CONSTRAINT `pr_usuario` FOREIGN KEY (`pr_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 --
--- Limitadores para a tabela `resenha`
+-- Restrições para tabelas `resenha`
 --
 ALTER TABLE `resenha`
   ADD CONSTRAINT `re_livro` FOREIGN KEY (`re_idlivro`) REFERENCES `livro` (`li_idlivro`),
-  ADD CONSTRAINT `re_usuario` FOREIGN KEY (`re_idusuario`) REFERENCES `usuario` (`us_id`);
+  ADD CONSTRAINT `re_usuario` FOREIGN KEY (`re_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 --
--- Limitadores para a tabela `usuariogenero`
+-- Restrições para tabelas `usuariogenero`
 --
 ALTER TABLE `usuariogenero`
   ADD CONSTRAINT `ug_genero` FOREIGN KEY (`ug_idgenero`) REFERENCES `genero` (`ge_id`),
-  ADD CONSTRAINT `ug_usuario` FOREIGN KEY (`ug_idusuario`) REFERENCES `usuario` (`us_id`);
-COMMIT;
+  ADD CONSTRAINT `ug_usuario` FOREIGN KEY (`ug_idusuario`) REFERENCES `Usuario` (`us_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
